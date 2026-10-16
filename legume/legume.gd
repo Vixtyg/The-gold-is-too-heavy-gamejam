@@ -1,19 +1,20 @@
+@tool
 extends RigidBody2D
 
 @export var target: CharacterBody2D
 
 # how fast the legume can move
-@export var speed := 10.0
+@export var speed := 50.0
 
 # how fast the legume can rotate in degrees per tick
-@export var angular_speed := 1.0
+@export var angular_speed := 5.0
 
 # field of view angle in degrees
 @export var fov_degrees := 90.0
 @export var max_range := 500.0
 
-var fov_rad = deg_to_rad(fov_degrees)
-var angular_speed_rad = deg_to_rad(angular_speed)
+var fov_rad := deg_to_rad(fov_degrees)
+var angular_speed_rad := deg_to_rad(angular_speed)
 
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
@@ -34,13 +35,8 @@ func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
 
 
 func _draw() -> void:
-	return
-	# BUG: Draws nonsense
-	self.draw_arc(
-		self.global_position, # Is this not the center?
-		max_range,
-		fov_rad * -0.5 + self.global_rotation,
-		fov_rad * 0.5 + self.global_rotation,
-		16,
-		Color.AQUA,
-	)
+	var start_angle := fov_rad * -0.5
+	var end_angle := fov_rad * 0.5
+	self.draw_line(Vector2.ZERO, Vector2(max_range, 0).rotated(start_angle), Color.AQUA)
+	self.draw_line(Vector2.ZERO, Vector2(max_range, 0).rotated(end_angle), Color.AQUA)
+	self.draw_arc(Vector2.ZERO, max_range, start_angle, end_angle, 16, Color.AQUA)
