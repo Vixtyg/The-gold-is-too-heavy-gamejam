@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://pn2ru5kwdhlw"]
+
+[ext_resource type="Script" uid="uid://biqivrqvlcft1" path="res://scripts/dog.gd" id="1_dog"]
+[ext_resource type="SpriteFrames" uid="uid://drixoarqfskgf" path="res://Assets/dawg/dog_frames.tres" id="2_frames"]
+[ext_resource type="Shader" uid="uid://catc60edhfkn3" path="res://effects/dog_fisheye.gdshader" id="2_gmowd"]
+[ext_resource type="Script" uid="uid://p11oaswuwu6r" path="res://effects/dog_fisheye.gd" id="3_fisheye"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gmowd"]
+shader = ExtResource("2_gmowd")
+shader_parameter/strength = 0.0
+shader_parameter/size_growth = 0.18
+shader_parameter/visual_scale = 1.0
+shader_parameter/frame_uv_rect = Vector4(0, 0, 0.1, 1)
+shader_parameter/content_uv_rect = Vector4(0.34, 0.39, 0.33, 0.22)
+shader_parameter/lens_center = Vector2(0.5, 0.5)
+shader_parameter/lens_radius = 1.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
+radius = 13.0
+height = 56.0
+
+[node name="Dog" type="CharacterBody2D" unique_id=669298489]
+texture_filter = 1
+motion_mode = 1
+script = ExtResource("1_dog")
+
+[node name="Shadow" type="Polygon2D" parent="." unique_id=1572111210]
+position = Vector2(0, -3)
+color = Color(0.08, 0.17, 0.12, 0.24)
+polygon = PackedVector2Array(-38, 0, -28, -9, 0, -12, 28, -9, 38, 0, 28, 9, 0, 12, -28, 9)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=628443977]
+material = SubResource("ShaderMaterial_gmowd")
+position = Vector2(0, -28)
+scale = Vector2(2.5, 2.5)
+sprite_frames = ExtResource("2_frames")
+animation = &"idle"
+autoplay = "idle"
+script = ExtResource("3_fisheye")
+strength = 0.0
+size_growth = null
+space_radius = null
+space_distortion = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1269795391]
+position = Vector2(0, -7)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_body")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=665507540]
+position = Vector2(0, -25)
+limit_left = 0
+limit_top = 0
+limit_right = 3200
+limit_bottom = 2200
+position_smoothing_enabled = true
+position_smoothing_speed = 7.0
