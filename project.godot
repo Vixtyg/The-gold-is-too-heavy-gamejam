@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="GoldenDawgGame"
-run/main_scene="uid://beisjnk4287p1"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*res://autoload/game_manager.gd"
 
 [input]
 

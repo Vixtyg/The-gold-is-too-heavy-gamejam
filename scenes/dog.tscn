@@ -38,9 +38,6 @@ animation = &"idle"
 autoplay = "idle"
 script = ExtResource("3_fisheye")
 strength = 0.0
-size_growth = null
-space_radius = null
-space_distortion = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1269795391]
 position = Vector2(0, -7)

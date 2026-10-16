@@ -8,6 +8,10 @@ extends CharacterBody2D
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 
+func get_strength() -> float:
+	return sprite.get("strength")
+
+
 func _physics_process(delta: float) -> void:
 	# PORT: при переносе всей собаки добавьте эти 4 действия в Input Map
 	# или замените их именами действий движения вашего проекта.

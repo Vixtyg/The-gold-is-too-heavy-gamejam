@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://m1lfolulpwex"]
+
+[ext_resource type="Script" uid="uid://bbhpw7j2wy1f0" path="res://legume/legume.gd" id="1_8kv78"]
+[ext_resource type="Texture2D" uid="uid://q7vg37xl1dv7" path="res://legume/salad.png" id="1_co0n3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_t3pxe"]
+radius = 100.0
+
+[node name="RigidBody2D" type="RigidBody2D" unique_id=1068786771]
+collision_mask = 0
+gravity_scale = 0.0
+contact_monitor = true
+max_contacts_reported = 4
+script = ExtResource("1_8kv78")
+
+[node name="Salad" type="Sprite2D" parent="." unique_id=580200702]
+scale = Vector2(0.04, 0.066)
+texture = ExtResource("1_co0n3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1325566501]
+scale = Vector2(0.2, 0.2)
+shape = SubResource("CircleShape2D_t3pxe")
