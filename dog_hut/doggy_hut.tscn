@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://du3ygyd47yx76"]
+
+[ext_resource type="Texture2D" uid="uid://btn7uimwnit8l" path="res://dog_hut/DOG_HOUSE.png" id="1_kjilb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obss0"]
+size = Vector2(83, 35)
+
+[node name="Node2D" type="StaticBody2D" unique_id=942148684]
+
+[node name="DogHouse" type="Sprite2D" parent="." unique_id=698102929]
+texture_filter = 1
+position = Vector2(1, 0)
+scale = Vector2(2.296875, 2.296875)
+texture = ExtResource("1_kjilb")
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1727373898]
+position = Vector2(1, 22)
+shape = SubResource("RectangleShape2D_obss0")

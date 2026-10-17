@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://qon1xnj8pfd4"]
+
+[ext_resource type="Script" uid="uid://btfaglwa524yv" path="res://sandwich/junk_food.gd" id="1_fevxi"]
+[ext_resource type="Texture2D" uid="uid://cgq22rgnxjj7r" path="res://sandwich/92_sandwich.webp" id="2_rtrj7"]
+[ext_resource type="Texture2D" uid="uid://vpu7siqwnpoq" path="res://legume/64x64 textures (52).png" id="3_3yu8b"]
+[ext_resource type="Script" uid="uid://bq1f15sc87exu" path="res://sandwich/point_light_2d.gd" id="4_26gle"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_obss0"]
+radius = 22.022715
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eating"]
+radius = 46.0
+
+[node name="sandwich" type="CharacterBody2D" unique_id=2066933251]
+script = ExtResource("1_fevxi")
+
+[node name="92Sandwich" type="Sprite2D" parent="." unique_id=375591013]
+texture_filter = 1
+texture_repeat = 1
+scale = Vector2(2, 2)
+texture = ExtResource("2_rtrj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=933295593]
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_obss0")
+
+[node name="EatingArea" type="Area2D" parent="." unique_id=2060017048]
+scale = Vector2(0.6, 0.6)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EatingArea" unique_id=660234776]
+shape = SubResource("CircleShape2D_eating")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=880827084]
+position = Vector2(-1, 1)
+scale = Vector2(2.109375, 2.109375)
+texture = ExtResource("3_3yu8b")
+script = ExtResource("4_26gle")

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://d1258sk1usqe1"]
+
+[ext_resource type="Script" uid="uid://15yi3coccu2w" path="res://doors/door_vertical_north.gd" id="1_xj4jb"]
+[ext_resource type="Texture2D" uid="uid://bgq1ls2w3yr7r" path="res://doors/Reinforced-wooden-wall_Gates-openingH_closingV-Sheet7.png" id="2_fyqal"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_obss0"]
+size = Vector2(42.5, 35)
+
+[sub_resource type="Animation" id="Animation_fjpta"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReinforcedWoodenWallGatesOpeningHClosingVSheet7:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_i3xrw"]
+resource_name = "open_door"
+length = 0.5000033594105393
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ReinforcedWoodenWallGatesOpeningHClosingVSheet7:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.26666668, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 2, 3, 4, 5, 6]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcks1"]
+_data = {
+&"RESET": SubResource("Animation_fjpta"),
+&"open_door": SubResource("Animation_i3xrw")
+}
+
+[node name="Door" type="StaticBody2D" unique_id=300750661]
+script = ExtResource("1_xj4jb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2060546476]
+position = Vector2(39.75, 28.5)
+shape = SubResource("RectangleShape2D_obss0")
+
+[node name="ReinforcedWoodenWallGatesOpeningHClosingVSheet7" type="Sprite2D" parent="." unique_id=2130233725]
+texture_filter = 1
+position = Vector2(39.999985, 39.999992)
+scale = Vector2(3.02, 3.02)
+texture = ExtResource("2_fyqal")
+hframes = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1685095859]
+libraries/ = SubResource("AnimationLibrary_dcks1")
