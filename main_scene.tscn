@@ -19,4 +19,5 @@ speed = 100.55
 
 [node name="sandwich" parent="." unique_id=2066933251 node_paths=PackedStringArray("player") instance=ExtResource("3_gyfs4")]
 position = Vector2(1167, 1604)
+DETECTION_RADIUS = 300
 player = NodePath("../Dog")

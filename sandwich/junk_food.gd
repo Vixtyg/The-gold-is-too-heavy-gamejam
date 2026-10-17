@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 signal eaten
 
-const SPEED = 100
-const DETECTION_RADIUS = 400
+@export var SPEED = 75
+@export var DETECTION_RADIUS = 400
 @export var player: CharacterBody2D
 var radius
 var _eaten: bool = false
