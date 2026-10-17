@@ -20,6 +20,5 @@ func _on_sandwich_eaten() -> void:
 
 
 func _on_salad_body_entered(body: Node) -> void:
-	if body == _dog and not _salad.is_queued_for_deletion():
-		_salad.queue_free()
+	if body == _dog:
 		_fisheye.strength -= salad_slimming_amount
