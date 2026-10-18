@@ -9,6 +9,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if (player.get_strength()>=1&&open==false):
-		$AnimationPlayer.play("open_door")
+		#$AnimationPlayer.play("open_door")
 		open=true
-		$CollisionShape2D.disabled=true
+		#$CollisionShape2D.disabled=true
+	
