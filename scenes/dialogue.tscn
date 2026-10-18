@@ -1,0 +1,83 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_dialogue"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBox_panel"]
+bg_color = Color(0.025, 0.025, 0.035, 0.98)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="SystemFont" id="Font_sans"]
+font_names = PackedStringArray("Comic Sans MS", "Arial")
+
+[node name="Dialogue" type="CanvasLayer"]
+process_mode = 3
+layer = 100
+visible = false
+script = ExtResource("1_dialogue")
+
+[node name="Layout" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Layout"]
+layout_mode = 0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 48.0
+offset_top = -268.0
+offset_right = -48.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBox_panel")
+
+[node name="Margin" type="MarginContainer" parent="Layout/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 18
+
+[node name="Content" type="VBoxContainer" parent="Layout/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Speaker" type="Label" parent="Layout/Panel/Margin/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.85, 0.4, 1)
+theme_override_fonts/font = SubResource("Font_sans")
+theme_override_font_sizes/font_size = 25
+text = "sans"
+
+[node name="Text" type="Label" parent="Layout/Panel/Margin/Content"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = SubResource("Font_sans")
+theme_override_font_sizes/font_size = 28
+autowrap_mode = 3
+
+[node name="Footer" type="HBoxContainer" parent="Layout/Panel/Margin/Content"]
+layout_mode = 2
+
+[node name="Hint" type="Label" parent="Layout/Panel/Margin/Content/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.74, 1)
+theme_override_font_sizes/font_size = 17
+text = "Enter / Space / E / Click — Next"
+
+[node name="Progress" type="Label" parent="Layout/Panel/Margin/Content/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.74, 1)
+theme_override_font_sizes/font_size = 17
+text = "1 / 1"

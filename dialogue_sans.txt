@@ -1,0 +1,14 @@
+Oh, hi there!
+All this mustard on the floor? My bad. Sorry.
+You're asking if there are any secrets on this floor.
+There are none.
+Absolutely none.
+No secrets on this floor, pal.
+...
+Okay, you got me.
+There might be one secret room, I guess.
+Go check out those absolutely unsuspicious vending machines over there.
+See ya!
+
+// if interructed again:
+Was it worth it?

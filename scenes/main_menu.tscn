@@ -1,0 +1,313 @@
+[gd_scene format=3 uid="uid://2dfpmn3kxqyc"]
+
+[ext_resource type="Script" uid="uid://dnbctbwqnjv8w" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://4gth8du7y2uv" path="res://scripts/menu_doodles.gd" id="2_doodles"]
+[ext_resource type="FontFile" uid="uid://c72sfmyvsdv0b" path="res://fonts/TrueType (.ttf)/Kaph-Regular.ttf" id="3_font"]
+[ext_resource type="Texture2D" uid="uid://cak0kqm63rxpx" path="res://cutscenes/edited_dawg2.png" id="4_dog"]
+[ext_resource type="Shader" uid="uid://d2gc7qukr2ax4" path="res://cutscenes/image_pixelation.gdshader" id="5_dog_shader"]
+
+[sub_resource type="ShaderMaterial" id="Material_dog"]
+resource_local_to_scene = true
+shader = ExtResource("5_dog_shader")
+shader_parameter/pixel_size = 8.0
+shader_parameter/color_levels = 16
+
+[sub_resource type="StyleBoxFlat" id="Style_badge"]
+bg_color = Color(1, 0.961, 0.98, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.945, 0.627, 0.753, 1)
+corner_radius_top_left = 18
+corner_radius_top_right = 18
+corner_radius_bottom_right = 18
+corner_radius_bottom_left = 18
+
+[sub_resource type="StyleBoxFlat" id="Style_play"]
+bg_color = Color(0.914, 0.341, 0.584, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.961, 0.98, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.69, 0.224, 0.424, 0.7)
+shadow_size = 2
+shadow_offset = Vector2(0, 7)
+
+[sub_resource type="StyleBoxFlat" id="Style_play_pressed"]
+bg_color = Color(0.835, 0.263, 0.51, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.961, 0.98, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+
+[sub_resource type="StyleBoxFlat" id="Style_play_hover"]
+bg_color = Color(0.961, 0.459, 0.655, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 0.961, 0.98, 1)
+corner_radius_top_left = 26
+corner_radius_top_right = 26
+corner_radius_bottom_right = 26
+corner_radius_bottom_left = 26
+shadow_color = Color(0.69, 0.224, 0.424, 0.6)
+shadow_size = 2
+shadow_offset = Vector2(0, 7)
+
+[sub_resource type="StyleBoxFlat" id="Style_focus"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.62, 0.196, 0.357, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+expand_margin_left = 6.0
+expand_margin_top = 6.0
+expand_margin_right = 6.0
+expand_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxFlat" id="Style_quit"]
+bg_color = Color(1, 0.961, 0.98, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.91, 0.557, 0.706, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[sub_resource type="StyleBoxFlat" id="Style_quit_hover"]
+bg_color = Color(1, 0.776, 0.871, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.91, 0.557, 0.706, 1)
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+
+[node name="MainMenu" type="Control" unique_id=17505453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="Control" parent="." unique_id=1784475992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_doodles")
+
+[node name="Layout" type="Control" parent="." unique_id=1063577255]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -640.0
+offset_top = -360.0
+offset_right = 640.0
+offset_bottom = 360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleTop" type="RichTextLabel" parent="Layout" unique_id=40518479]
+clip_contents = false
+layout_mode = 0
+offset_left = 130.0
+offset_top = 45.0
+offset_right = 1150.0
+offset_bottom = 131.0
+rotation = -0.018
+pivot_offset = Vector2(510, 43)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.851, 0.278, 0.51, 1)
+theme_override_colors/font_outline_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_shadow_color = Color(0.714, 0.286, 0.463, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("3_font")
+theme_override_font_sizes/normal_font_size = 58
+bbcode_enabled = true
+text = "[center]The [color=#C58B46][font_size=68]GOLDEN[/font_size][/color] Retriever[/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="TitleBottom" type="RichTextLabel" parent="Layout" unique_id=939325371]
+clip_contents = false
+layout_mode = 0
+offset_left = 130.0
+offset_top = 137.0
+offset_right = 1150.0
+offset_bottom = 230.0
+rotation = 0.013
+pivot_offset = Vector2(510, 46)
+mouse_filter = 2
+theme_override_colors/default_color = Color(0.714, 0.173, 0.404, 1)
+theme_override_colors/font_outline_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_shadow_color = Color(0.851, 0.439, 0.616, 1)
+theme_override_constants/shadow_offset_y = 6
+theme_override_constants/outline_size = 9
+theme_override_fonts/normal_font = ExtResource("3_font")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]That Got Too [color=#C58B46][font_size=74]HEAVY[/font_size][/color][/center]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Dog" type="TextureRect" parent="Layout" unique_id=911585665]
+texture_filter = 1
+material = SubResource("Material_dog")
+layout_mode = 0
+offset_left = 267.0
+offset_top = 263.0
+offset_right = 547.0
+offset_bottom = 610.0
+pivot_offset = Vector2(140, 173)
+mouse_filter = 2
+texture = ExtResource("4_dog")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GoodBoyBadge" type="Panel" parent="Layout" unique_id=1716907647]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 599.0
+offset_right = 525.0
+offset_bottom = 645.0
+rotation = -0.06
+pivot_offset = Vector2(118, 23)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("Style_badge")
+
+[node name="Text" type="Label" parent="Layout/GoodBoyBadge" unique_id=49258983]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.714, 0.173, 0.404, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "100% GOOD BOY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SnackQuestion" type="Label" parent="Layout" unique_id=834245256]
+layout_mode = 0
+offset_left = 706.0
+offset_top = 297.0
+offset_right = 1086.0
+offset_bottom = 335.0
+theme_override_colors/font_color = Color(0.714, 0.286, 0.463, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 18
+text = "ONE MORE SANDWICH?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttons" type="VBoxContainer" parent="Layout" unique_id=1028418270]
+layout_mode = 0
+offset_left = 731.0
+offset_top = 362.0
+offset_right = 1061.0
+offset_bottom = 540.0
+theme_override_constants/separation = 26
+
+[node name="Play" type="Button" parent="Layout/Buttons" unique_id=610450109]
+custom_minimum_size = Vector2(330, 82)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Quit")
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_focus_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_pressed_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_hover_color = Color(1, 0.961, 0.98, 1)
+theme_override_colors/font_disabled_color = Color(1, 0.961, 0.98, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("Style_play")
+theme_override_styles/pressed = SubResource("Style_play_pressed")
+theme_override_styles/hover = SubResource("Style_play_hover")
+theme_override_styles/disabled = SubResource("Style_play")
+theme_override_styles/focus = SubResource("Style_focus")
+text = "LET'S PLAY!"
+
+[node name="Quit" type="Button" parent="Layout/Buttons" unique_id=2118719186]
+custom_minimum_size = Vector2(330, 66)
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Play")
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.62, 0.196, 0.357, 1)
+theme_override_colors/font_focus_color = Color(0.62, 0.196, 0.357, 1)
+theme_override_colors/font_pressed_color = Color(0.62, 0.196, 0.357, 1)
+theme_override_colors/font_hover_color = Color(0.62, 0.196, 0.357, 1)
+theme_override_colors/font_disabled_color = Color(0.62, 0.196, 0.357, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("Style_quit")
+theme_override_styles/pressed = SubResource("Style_quit_hover")
+theme_override_styles/hover = SubResource("Style_quit_hover")
+theme_override_styles/disabled = SubResource("Style_quit")
+theme_override_styles/focus = SubResource("Style_focus")
+text = "QUIT"
+
+[node name="SillyNote" type="Label" parent="Layout" unique_id=1049389191]
+layout_mode = 0
+offset_left = 691.0
+offset_top = 566.0
+offset_right = 1101.0
+offset_bottom = 606.0
+rotation = 0.025
+pivot_offset = Vector2(205, 20)
+theme_override_colors/font_color = Color(0.714, 0.286, 0.463, 1)
+theme_override_fonts/font = ExtResource("3_font")
+theme_override_font_sizes/font_size = 16
+text = "no thoughts. just snacks."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Transition" type="ColorRect" parent="." unique_id=84674341]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.871, 0.922, 0)

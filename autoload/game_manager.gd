@@ -1,21 +1,27 @@
 extends Node
 
-const MENU_SCENE := "res://scenes/menu.tscn"
+const START_SCENE := "res://scenes/menu.tscn"
+const MENU_SCENE := "res://scenes/main_menu.tscn"
 const INTRO_SCENE := "res://scenes/intro.tscn"
-const GAME_SCENE := "res://main_scene.tscn"
+const GAME_SCENE := "res://apocalyptic_world.tscn"
 const GAME_OVER_SCENE := "res://scenes/game_over.tscn"
 
 var _transition_pending: bool = false
 
 
-# Вызывается из меню при начале новой игры.
+# Старый стартовый экран запускает начальную катсцену.
 func start_game() -> void:
-	_change_scene(MENU_SCENE, INTRO_SCENE)
+	_change_scene(START_SCENE, INTRO_SCENE)
 
 
 # Вызывается после завершения стартовой катсцены.
 func finish_intro() -> void:
-	_change_scene(INTRO_SCENE, GAME_SCENE)
+	_change_scene(INTRO_SCENE, MENU_SCENE)
+
+
+# Новое меню открывается после катсцены; PLAY начинает игру без её повтора.
+func play_from_menu() -> void:
+	_change_scene(MENU_SCENE, GAME_SCENE)
 
 
 # Вызывается игровой сценой при проигрыше (например, по окончании таймера).
