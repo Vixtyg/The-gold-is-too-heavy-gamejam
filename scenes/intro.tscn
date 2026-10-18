@@ -1,3 +1,130 @@
 [gd_scene format=3]
 
-[node name="Intro" type="Node"]
+[ext_resource type="Script" path="res://cutscenes/intro.gd" id="1_intro"]
+[ext_resource type="Texture2D" path="res://cutscenes/ratimage.png" id="2_rat"]
+[ext_resource type="AudioStream" path="res://cutscenes/audio/intro_voice.ogg" id="3_voice"]
+[ext_resource type="Shader" path="res://cutscenes/intro_back_glow.gdshader" id="4_glow"]
+[ext_resource type="Script" path="res://cutscenes/pixel_camera.gd" id="5_camera"]
+[ext_resource type="Shader" path="res://cutscenes/pixelation.gdshader" id="6_pixelation"]
+[ext_resource type="JSON" path="res://cutscenes/scenes/intro_subtitles.json" id="7_subtitles"]
+[ext_resource type="Shader" path="res://cutscenes/intro_character.gdshader" id="8_character"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_character"]
+resource_local_to_scene = true
+shader = ExtResource("8_character")
+shader_parameter/side_shadow_strength = 0.3
+shader_parameter/bottom_shadow_strength = 0.45
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glow"]
+resource_local_to_scene = true
+shader = ExtResource("4_glow")
+
+[sub_resource type="Gradient" id="Gradient_front_light"]
+offsets = PackedFloat32Array(0, 0.65, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture_front_light"]
+gradient = SubResource("Gradient_front_light")
+width = 1024
+height = 1024
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pixelation"]
+resource_local_to_scene = true
+shader = ExtResource("6_pixelation")
+shader_parameter/pixel_size = 2.0
+shader_parameter/reference_resolution = Vector2(1280, 720)
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_intro")
+subtitle_track = ExtResource("7_subtitles")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -10
+
+[node name="Black" type="ColorRect" parent="Background"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Darkness" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="BackGlow" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_glow")
+offset_left = -560.0
+offset_top = -410.0
+offset_right = 560.0
+offset_bottom = 310.0
+mouse_filter = 2
+
+[node name="RatImage" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_character")
+position = Vector2(0, -25)
+scale = Vector2(0.43, 0.43)
+texture = ExtResource("2_rat")
+
+[node name="FrontLight" type="PointLight2D" parent="."]
+position = Vector2(0, -55)
+color = Color(1, 0.96, 0.9, 1)
+energy = 0.0
+texture = SubResource("GradientTexture_front_light")
+
+[node name="Voice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_voice")
+
+[node name="Subtitles" type="CanvasLayer" parent="."]
+layer = 5
+
+[node name="Text" type="Label" parent="Subtitles"]
+anchors_preset = 12
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -570.0
+offset_top = -100.0
+offset_right = 570.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("5_camera")
+pixel_size = 2
+
+[node name="Pixelation" type="CanvasLayer" parent="Camera2D"]
+layer = 10
+
+[node name="Overlay" type="ColorRect" parent="Camera2D/Pixelation"]
+material = SubResource("ShaderMaterial_pixelation")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Transition" type="CanvasLayer" parent="."]
+layer = 20
+
+[node name="Black" type="ColorRect" parent="Transition"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)

@@ -1,0 +1,51 @@
+[gd_scene format=3]
+
+[node name="FearScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 200
+visible = false
+
+[node name="Black" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PixelText" type="SubViewportContainer" parent="Black"]
+texture_filter = 1
+layout_mode = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = -24.0
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch = true
+stretch_shrink = 4
+
+[node name="Viewport" type="SubViewport" parent="Black/PixelText"]
+disable_3d = true
+transparent_bg = true
+gui_disable_input = true
+size = Vector2i(308, 168)
+render_target_update_mode = 4
+
+[node name="Text" type="Label" parent="Black/PixelText/Viewport"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.95, 0.04, 0.04, 1)
+theme_override_font_sizes/font_size = 18
+text = "you run in fear"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

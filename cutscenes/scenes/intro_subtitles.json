@@ -1,0 +1,65 @@
+{
+  "cues": [
+    {
+      "start": 0.77,
+      "end": 2.67,
+      "text": "I... still can't believe that it happened."
+    },
+    {
+      "start": 4.05,
+      "end": 6.68,
+      "text": "I refuse to accept it. It doesn't make any sense."
+    },
+    {
+      "start": 7.06,
+      "end": 11.03,
+      "text": "I can understand the concept behind it, sure,\nbut to see it happen with your own eyes?"
+    },
+    {
+      "start": 11.71,
+      "end": 13.81,
+      "text": "The way people just turn on each other?"
+    },
+    {
+      "start": 14.59,
+      "end": 17.08,
+      "text": "Because of what? Because of us running out of gold?"
+    },
+    {
+      "start": 18.25,
+      "end": 22.08,
+      "text": "I... I... I refuse to accept it. I can't. I cannot."
+    },
+    {
+      "start": 24.73,
+      "end": 28.51,
+      "text": "The only thing that's left in my life that's bright\nis my old little companion."
+    },
+    {
+      "start": 30.12,
+      "end": 31.93,
+      "text": "But I think we're running out of supplies."
+    },
+    {
+      "start": 32.62,
+      "end": 36.59,
+      "text": "I don't think we have enough sandwiches anymore.\nWe might have to make a supply run."
+    },
+    {
+      "start": 37.91,
+      "end": 38.44,
+      "text": "As for me..."
+    },
+    {
+      "start": 39.38,
+      "end": 40.34,
+      "text": "You wondering who I am?"
+    },
+    {
+      "start": 40.85,
+      "end": 41.76,
+      "text": "I think you already know.",
+      "reveal": true
+    }
+  ]
+}

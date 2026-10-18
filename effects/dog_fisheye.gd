@@ -43,8 +43,8 @@ const MAX_STRENGTH: float = 3.0
 # PORT: отключите тестовое управление при подключении к своему управлению.
 # Измените две клавиши ниже, если Num 8 / Num 2 уже заняты в другом проекте.
 @export var test_controls_enabled: bool = true
-@export var increase_key: Key = 9
-@export var decrease_key: Key = 2
+@export var increase_key: Key = KEY_KP_8
+@export var decrease_key: Key = KEY_KP_2
 @export_range(0.05, 1.0, 0.05) var test_step: float = 0.2
 
 var _effect_material: ShaderMaterial
@@ -109,7 +109,7 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	if key == null or not key.pressed:
 		return
 	# No Input Map setup is needed in the destination project. Key repeat works too.
-	if false :
+	if key.physical_keycode == increase_key or key.keycode == increase_key:
 		strength += test_step
 	elif key.physical_keycode == decrease_key or key.keycode == decrease_key:
 		strength -= test_step

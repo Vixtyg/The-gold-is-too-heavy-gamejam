@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://2dfpmn3kxqyc"]
+
+[ext_resource type="Script" uid="uid://dnbctbwqnjv8w" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Script" uid="uid://4gth8du7y2uv" path="res://scripts/menu_doodles.gd" id="2_doodles"]
+[ext_resource type="Texture2D" uid="uid://ciakcx4wf31xw" path="res://scenes/jillwellington-pink-2249403_1920.jpg" id="3_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://b2xq0rgkqyx15" path="res://Assets/phuonglucky-flowers-6616124_1920.png" id="4_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://coyltf8ctaxs5" path="res://connie-kwan-3r_K4AdmasE-unsplash.jpg" id="5_5dd4i"]
+[ext_resource type="Texture2D" uid="uid://j6axnk2capr" path="res://Assets/openclipart-vectors-ribbon-159149.svg" id="6_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://dm8kythn2x1xt" path="res://Assets/The GOLDen retirever .png" id="7_flqon"]
+[ext_resource type="Texture2D" uid="uid://bmycmtt5hoeg0" path="res://Assets/that got TOO HEAVY.png" id="8_rcqid"]
+[ext_resource type="FontFile" uid="uid://dvmufsku7nr4u" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="9_jk1qb"]
+
+[sub_resource type="Theme" id="Theme_obss0"]
+
+[sub_resource type="Theme" id="Theme_rbkmr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg418"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_usbvk"]
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+
+[node name="MainMenu" type="Control" unique_id=17505453]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = SubResource("Theme_obss0")
+script = ExtResource("1_menu")
+
+[node name="Background" type="Control" parent="." unique_id=1784475992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("2_doodles")
+
+[node name="JillwellingtonPink22494031920" type="Sprite2D" parent="." unique_id=46670074]
+position = Vector2(576, 351)
+scale = Vector2(0.6058594, 0.6058594)
+texture = ExtResource("3_tbmy8")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="JillwellingtonPink22494031920" unique_id=1305963353]
+color = Color(0.68654644, 0.45881373, 0.49082202, 1)
+
+[node name="ColorRect" type="ColorRect" parent="JillwellingtonPink22494031920" unique_id=2096407464]
+offset_left = -836.8278
+offset_top = -495.16437
+offset_right = 125.44171
+offset_bottom = 562.837
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="JillwellingtonPink22494031920" unique_id=853512326]
+offset_left = -934.2102
+offset_top = -618.95544
+offset_right = 259.1361
+offset_bottom = -364.77094
+
+[node name="PhuongluckyFlowers66161241920" type="Sprite2D" parent="." unique_id=1071487072]
+position = Vector2(362, 382)
+scale = Vector2(0.19622396, 0.24830732)
+texture = ExtResource("4_jk1qb")
+metadata/_edit_group_ = true
+
+[node name="TheGolDenRetirever" type="Sprite2D" parent="PhuongluckyFlowers66161241920" unique_id=1635015485]
+position = Vector2(10.192627, -1417.5981)
+scale = Vector2(5.096217, 4.0272675)
+texture = ExtResource("7_flqon")
+metadata/_edit_group_ = true
+
+[node name="ConnieKwan3rK4AdmasEUnsplash2" type="Sprite2D" parent="PhuongluckyFlowers66161241920" unique_id=873010548]
+position = Vector2(5.0959473, -12.081848)
+scale = Vector2(0.33061713, 0.26126897)
+texture = ExtResource("5_5dd4i")
+metadata/_edit_group_ = true
+
+[node name="OpenclipartVectorsRibbon159149" type="Sprite2D" parent="PhuongluckyFlowers66161241920" unique_id=1695830780]
+position = Vector2(30.577263, -730.44574)
+scale = Vector2(2.9522452, 2.3330011)
+texture = ExtResource("6_lgwnu")
+metadata/_edit_group_ = true
+
+[node name="ThatGotTooHeavy" type="Sprite2D" parent="PhuongluckyFlowers66161241920" unique_id=1984623212]
+position = Vector2(3.8225098, 885.9988)
+scale = Vector2(4.773477, 3.50762)
+texture = ExtResource("8_rcqid")
+metadata/_edit_group_ = true
+
+[node name="Button" type="Button" parent="." unique_id=701091522]
+layout_mode = 0
+offset_left = 769.0
+offset_top = 277.0
+offset_right = 993.0
+offset_bottom = 361.0
+theme = SubResource("Theme_rbkmr")
+theme_override_colors/font_outline_color = Color(3.622875, 0, 3.8189955, 1)
+theme_override_fonts/font = ExtResource("9_jk1qb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_sg418")
+text = "PLAY!"
+
+[node name="Button2" type="Button" parent="." unique_id=313385972]
+layout_mode = 0
+offset_left = 768.0
+offset_top = 422.0
+offset_right = 992.0
+offset_bottom = 506.0
+theme_override_fonts/font = ExtResource("9_jk1qb")
+theme_override_font_sizes/font_size = 48
+theme_override_styles/normal = SubResource("StyleBoxFlat_usbvk")
+text = "QUIT"

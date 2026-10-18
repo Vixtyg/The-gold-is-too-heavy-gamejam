@@ -11,7 +11,6 @@ const FisheyeEffect = preload("res://effects/dog_fisheye.gd")
 
 
 func _ready() -> void:
-	_fisheye.test_controls_enabled = false
 	_salad.body_entered.connect(_on_salad_body_entered)
 	$sandwich.eaten.connect(_on_sandwich_eaten)
 
@@ -21,6 +20,5 @@ func _on_sandwich_eaten() -> void:
 
 
 func _on_salad_body_entered(body: Node) -> void:
-	if body == _dog and not _salad.is_queued_for_deletion():
-		_salad.queue_free()
+	if body == _dog:
 		_fisheye.strength -= salad_slimming_amount

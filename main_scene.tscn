@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://beisjnk4287p1"]
+
+[ext_resource type="PackedScene" uid="uid://pn2ru5kwdhlw" path="res://scenes/dog.tscn" id="1_0f027"]
+[ext_resource type="PackedScene" uid="uid://m1lfolulpwex" path="res://legume/legume.tscn" id="2_2c62f"]
+[ext_resource type="PackedScene" uid="uid://qon1xnj8pfd4" path="res://sandwich/junk_food.tscn" id="3_gyfs4"]
+[ext_resource type="Script" uid="uid://cmjkiut6ray6" path="res://scripts/main_scene.gd" id="4_main"]
+
+[node name="mainScene" type="Node2D" unique_id=344803677]
+script = ExtResource("4_main")
+
+[node name="Dog" parent="." unique_id=669298489 instance=ExtResource("1_0f027")]
+position = Vector2(1600, 1600)
+
+[node name="Salad" parent="." unique_id=1068786771 node_paths=PackedStringArray("target") instance=ExtResource("2_2c62f")]
+position = Vector2(841, 1799)
+target = NodePath("../Dog")
+speed = 100.55
+
+[node name="sandwich" parent="." unique_id=2066933251 node_paths=PackedStringArray("player") instance=ExtResource("3_gyfs4")]
+position = Vector2(1167, 1604)
+DETECTION_RADIUS = 300
+player = NodePath("../Dog")

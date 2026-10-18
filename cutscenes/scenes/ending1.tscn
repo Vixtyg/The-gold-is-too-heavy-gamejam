@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://u42vdciib5d8"]
+
+[ext_resource type="Texture2D" uid="uid://do8ck5lbdcbw5" path="res://icon.svg" id="1_p4m32"]
+[ext_resource type="Texture2D" uid="uid://cak0kqm63rxpx" path="res://cutscenes/edited_dawg2.png" id="2_bla1t"]
+[ext_resource type="Texture2D" uid="uid://ctv2er0yctehw" path="res://cutscenes/edited_dawg3.png" id="3_atnpn"]
+[ext_resource type="Script" path="res://cutscenes/ending1.gd" id="4_ending"]
+[ext_resource type="Script" uid="uid://c7gxaakrmoa40" path="res://cutscenes/pixel_camera.gd" id="5_camera"]
+[ext_resource type="Shader" uid="uid://cdd8b3ynti14v" path="res://cutscenes/pixelation.gdshader" id="6_pixelation"]
+[ext_resource type="Shader" uid="uid://d2gc7qukr2ax4" path="res://cutscenes/image_pixelation.gdshader" id="7_image_pixelation"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pixelation"]
+resource_local_to_scene = true
+shader = ExtResource("6_pixelation")
+shader_parameter/pixel_size = 3.0
+shader_parameter/reference_resolution = Vector2(1238, 284)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_image1"]
+resource_local_to_scene = true
+shader = ExtResource("7_image_pixelation")
+shader_parameter/pixel_size = 18.0
+shader_parameter/color_levels = 8
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_image2"]
+resource_local_to_scene = true
+shader = ExtResource("7_image_pixelation")
+shader_parameter/pixel_size = 9.0
+shader_parameter/color_levels = 8
+
+[node name="Ending1" type="Node2D" unique_id=1911945453]
+script = ExtResource("4_ending")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=642176769]
+script = ExtResource("5_camera")
+
+[node name="Pixelation" type="CanvasLayer" parent="Camera2D" unique_id=125497404]
+layer = 10
+
+[node name="Overlay" type="ColorRect" parent="Camera2D/Pixelation" unique_id=1995381515]
+material = SubResource("ShaderMaterial_pixelation")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="black_background" type="Sprite2D" parent="." unique_id=72752356]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-5.0000305, -5.0000153)
+scale = Vector2(11.343751, 6.9843755)
+texture = ExtResource("1_p4m32")
+
+[node name="frame1" type="Node2D" parent="." unique_id=1898877566]
+
+[node name="appearin3secs" type="Label" parent="frame1" unique_id=499937181]
+offset_left = -411.0
+offset_top = 265.0
+offset_right = 126.0
+offset_bottom = 318.0
+theme_override_font_sizes/font_size = 38
+text = "Only one pure soul remains…"
+
+[node name="appearin1sec" type="Label" parent="frame1" unique_id=2011273854]
+offset_left = -613.0
+offset_top = -302.0
+offset_right = 49.0
+offset_bottom = -252.0
+theme_override_font_sizes/font_size = 36
+text = "This world has long since rotted away."
+
+[node name="EditedDawg2" type="Sprite2D" parent="frame1" unique_id=84970864]
+texture_filter = 1
+material = SubResource("ShaderMaterial_image1")
+position = Vector2(395, 126)
+scale = Vector2(0.5107422, 0.5107422)
+texture = ExtResource("2_bla1t")
+
+[node name="appearin2secs" type="Label" parent="frame1" unique_id=629085436]
+offset_left = -613.0
+offset_top = -20.0
+offset_right = 226.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 38
+text = "Its people are gone. Its meaning is gone."
+
+[node name="frame2" type="Node2D" parent="." unique_id=601370823]
+visible = false
+
+[node name="EditedDawg3" type="Sprite2D" parent="frame2" unique_id=496891349]
+texture_filter = 1
+material = SubResource("ShaderMaterial_image2")
+position = Vector2(-516, 73.00001)
+scale = Vector2(0.9404297, 0.9404297)
+texture = ExtResource("3_atnpn")
+
+[node name="Label" type="Label" parent="frame2" unique_id=1687767404]
+offset_left = 86.0
+offset_top = -172.0
+offset_right = 526.0
+offset_bottom = -118.0
+theme_override_font_sizes/font_size = 39
+text = "Go forth, my precious..."
+
+[node name="Label2" type="RichTextLabel" parent="frame2" unique_id=989718547]
+offset_left = -158.0
+offset_top = 115.0
+offset_right = 620.0
+offset_bottom = 178.0
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[shake rate=25.0 level=20]AND DEVOUR THIS WRETCHED WORLD[/shake]"
+fit_content = true
+scroll_active = false

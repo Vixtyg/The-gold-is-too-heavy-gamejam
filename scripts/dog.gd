@@ -10,9 +10,6 @@ extends CharacterBody2D
 
 func get_strength() -> float:
 	return sprite.get("strength")
-func _on_eating_area_body_entered(body: Node2D) -> void:
-	print(body)
-
 
 
 func _physics_process(delta: float) -> void:
@@ -30,5 +27,3 @@ func _physics_process(delta: float) -> void:
 		sprite.play(&"run")
 	else:
 		sprite.play(&"idle")
-
- # Replace with function body.
