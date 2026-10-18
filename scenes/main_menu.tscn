@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://dm8kythn2x1xt" path="res://Assets/The GOLDen retirever .png" id="7_flqon"]
 [ext_resource type="Texture2D" uid="uid://bmycmtt5hoeg0" path="res://Assets/that got TOO HEAVY.png" id="8_rcqid"]
 [ext_resource type="FontFile" uid="uid://dvmufsku7nr4u" path="res://Assets/PixelifySans-VariableFont_wght.ttf" id="9_jk1qb"]
+[ext_resource type="AudioStream" uid="uid://ca1bmta8lu7ea" path="res://scenes/main_menu_music.mp3" id="10_5dd4i"]
 
 [sub_resource type="Theme" id="Theme_obss0"]
 
@@ -117,3 +118,7 @@ theme_override_fonts/font = ExtResource("9_jk1qb")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = SubResource("StyleBoxFlat_usbvk")
 text = "QUIT"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=169083467]
+stream = ExtResource("10_5dd4i")
+autoplay = true
